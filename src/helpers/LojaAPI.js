@@ -67,6 +67,12 @@ const LojaAPI = {
            {email, password}
        );
        return json;
+    }, 
+    getState:async () => {
+        const json = await apiFetchGet(
+            '/states'
+        );
+        return json.states;
     }
 };
 
