@@ -3,6 +3,7 @@ import { SearchArea, PageArea } from './styled';
 import useApi from '../../helpers/LojaAPI';
 import { PageContainer} from '../../components/MainComponents';
 import {Link} from 'react-router-dom';
+import AdItem from '../../components/partials/AdItem';
 
 
 
@@ -12,6 +13,7 @@ const Page = () => {
 
     const [ stateList, setStateList ] = useState([]);
     const [ categories, setCategories ] = useState([]);
+    const [ adList, setAdList ] = useState([]);
 
 
     useEffect(() => {
@@ -29,6 +31,19 @@ const Page = () => {
         }
         getCategories();
     }, []);
+
+    useEffect(() => {
+        const getRecentAds = async () => {
+            const json = await api.getAds({
+                sort:'desc', 
+                limit: 8
+            });
+            setAdList(json.ads);
+
+        }
+        getRecentAds();
+    }, []);
+
 
     return (
         <>
@@ -57,7 +72,23 @@ const Page = () => {
 
            <PageContainer>
                 <PageArea>
-                  ...
+                  <h2>Anúncios Recentes</h2>
+                  <div className="list">
+                      {adList.map((i, k) => 
+                        <AdItem key={k} data={i}/>
+                      )}
+                  </div>
+
+                  <Link to="/ads" className="seeAllLink">Ver Todos</Link>
+
+                  <hr/>
+
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                  when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                  It has survived not only five centuries, but also the leap into electronic typesetting,
+                  remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                  and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </PageArea>
            </PageContainer>
         </>
