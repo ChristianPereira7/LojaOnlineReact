@@ -18,9 +18,9 @@ const Header = () => {
                 <div className="container">
                     <div className="logo">
                         <Link to="./">
-                            <span className="logo-1">C</span>
-                            <span className="logo-2">H</span>
-                            <span className="logo-3">P</span>
+                            <span className="logo-1">O</span>
+                            <span className="logo-2">L</span>
+                            <span className="logo-3">X</span>
                         </Link>
                     </div>
                     <nav>
@@ -33,7 +33,7 @@ const Header = () => {
                                 </li>
                                 
                                 <li>
-                                    <button onClick={handleLogout   }>Sair</button>
+                                    <button onClick={handleLogout}>Sair</button>
                                 </li>
 
                                 <li>
