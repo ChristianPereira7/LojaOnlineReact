@@ -41,10 +41,12 @@ const apiFetchGet = async (endpoint, body = []) => {
     if(!body.token){
         let token = Cookies.get('token');
 
-        if(token){
-           token.body = token;
+        if (token) {
+           body.token = token;
         }
     }
+
+
 
     const res = await fetch(`${BASEAPI+endpoint}?${qs.stringify(body)}`);
 
