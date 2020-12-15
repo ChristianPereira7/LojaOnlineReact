@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PageArea, Fake } from './styled';
 import useApi from '../../helpers/LojaAPI';
-import { Slide } from 'react-slideshow-image';
+import { Slide } from   'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 import { PageContainer } from '../../components/MainComponents';
 
