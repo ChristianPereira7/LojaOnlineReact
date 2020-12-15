@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PageArea, Fake } from './styled';
 import useApi from '../../helpers/LojaAPI';
+import { Slide } from 'react-slideshow-image';
 
 import { PageContainer } from '../../components/MainComponents';
 
@@ -41,6 +42,15 @@ const Page = () => {
                     <div className="box">
                         <div className="adImage">
                         {loading && <Fake height={300}/>}
+                        {adInfo.images && 
+                        <Slide>
+                            {adInfo.images.map((img, k) => 
+                                <div key={k} className="each-slide">
+                                    <img src={img} alt=""/>
+                                </div>
+                            )}
+                        </Slide>
+                        }
                         </div>
 
                         <div className="adInfo"> 
