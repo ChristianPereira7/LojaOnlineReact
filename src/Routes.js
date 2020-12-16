@@ -31,6 +31,10 @@ export default () => {
                 <SignUp/>
             </RouteHandler>
 
+            <RouteHandler exact path="/ad/:id"> 
+                <AdPage/>
+            </RouteHandler>
+
             <RouteHandler private exact path="/post-an-ad"> 
                 <About/>
             </RouteHandler>
