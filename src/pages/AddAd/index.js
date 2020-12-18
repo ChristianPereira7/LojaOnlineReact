@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PageArea } from './styled';
 import useApi from '../../helpers/LojaAPI'
 import { doLogin } from '../../helpers/AuthHandler'
@@ -11,6 +11,8 @@ const Page = () => {
     const api = useApi();
 
     const fileFild = useRef();
+    
+    const [categories, setCategories ] = useState([]);
 
     const [ title, setTitle ] = useState('');
     const [ category, setCategory ] = useState('');
@@ -21,6 +23,14 @@ const Page = () => {
 
     const [ disabled, setDisabled ] = useState(false);
     const [ error, setError ] = useState('');
+
+    useEffect(() => {
+        const getCategories = async () => {
+            const cats = await api.getCategories();
+            setCategories(cats);
+        }
+        getCategories();
+    }, [])
 
     const handleSubmit = async (e) => {
           e.preventDefault();
@@ -62,7 +72,16 @@ const Page = () => {
                     <label className="area">
                         <div className="area--title">Categoria</div>
                         <div className="area--input">
-                        <select></select>
+                        <select
+                            disabled={disabled}
+                            onChange={e=>setCategory(e.target.value)}
+                            required
+                        >
+                            <options></options>
+                            {categories && categories.map(i=>
+                                <option key={i._id} value={i._id}>{i.name}</option>
+                            )}
+                        </select>
                         </div>
                            
                     </label>
