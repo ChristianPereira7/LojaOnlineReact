@@ -36,20 +36,27 @@ const Page = () => {
     const handleSubmit = async (e) => {
           e.preventDefault();
           setDisabled(true);
-
           setError('');
 
-          /*
-          const json = await api.login(email, password);
+          let errors = [];
 
-          if(json.error){
-              setError(json.error);
+          if(!title.trim()){
+              errors.push('Sem título');
           }
-          else{
-            doLogin(json.token, rememberPassword);
-            window.location.href = '/';
-          }
-        */
+
+        if(!category){
+            errors.push('Sem categoira');
+        }
+
+        if(errors.length === 0){
+            const fData = new FormData();
+            fData.append('title', title);
+            fData.append('price', price);
+            fData.append('priceneg', priceNegotiable);
+        } else {
+            setError(errors.join("\n"));
+        }
+
         setDisabled(false);
     }
 
