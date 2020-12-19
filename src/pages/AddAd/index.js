@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PageArea } from './styled';
-import useApi from '../../helpers/LojaAPI'
-import { doLogin } from '../../helpers/AuthHandler'
+import useApi from '../../helpers/LojaAPI';
+import MaskedInput from 'react-text-mask';
+import createNumberMask from 'text-mask-addons/dist/CreateNumberMask';
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
 
 
@@ -51,6 +52,15 @@ const Page = () => {
         */
         setDisabled(false);
     }
+
+
+    const priceMask = createNumberMask({
+        prefix:'R$ ',
+        includeThousandsSeparator: true,
+        thousandsSeparatorSymbol:'.',
+        allowDecimal: true,
+        decimalSymbol:','
+    });
 
 
     return (
