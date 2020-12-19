@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { PageArea } from './styled';
 import useApi from '../../helpers/LojaAPI';
 import MaskedInput from 'react-text-mask';
@@ -11,7 +12,9 @@ const Page = () => {
 
     const api = useApi();
 
-    const fileFild = useRef();
+    const fileField = useRef();
+
+    const history = useHistory();
     
     const [categories, setCategories ] = useState([]);
 
@@ -53,6 +56,24 @@ const Page = () => {
             fData.append('title', title);
             fData.append('price', price);
             fData.append('priceneg', priceNegotiable);
+            fData.append('desc', desc);
+            fData.append('cat', category);
+
+            if(fileField.current.files.length > 0) {
+                for (let i = 0; i <fileField.current.files.length; i++){
+                    fData.append('img', fileField.current.files[i]); 
+                }
+            }
+
+            const json = await api.addAd(fData);
+
+            if(!json.error){
+                history.push(`/ad/${json.id}`);
+                return;
+            } else {
+                setError(json.error);
+            }
+
         } else {
             setError(errors.join("\n"));
         }
@@ -150,7 +171,7 @@ const Page = () => {
                             <input
                                 type="file"
                                 disabled={disabled}
-                                ref={fileFild}
+                                ref={fileField}
                                 multiple
                             />
                         </div>
