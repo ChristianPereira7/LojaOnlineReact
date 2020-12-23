@@ -50,7 +50,7 @@ const Page = () => {
            <PageArea>
                <div className="leftSide">
                     <form method="GET">
-                        <input type="text" name="q"/>
+                        <input type="text" name="q" placeholder="O que você procura?"/>
 
                         <div className="filterName">Estado:</div>
 
