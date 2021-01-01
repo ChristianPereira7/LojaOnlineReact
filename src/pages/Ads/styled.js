@@ -31,6 +31,24 @@ margin-top: 20px;
         padding: 0;
         list-style: none;
     }
+
+    .categoryItem{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        color: #000;
+        cursor: pointer;
+
+        img{
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+        span{
+            font-size: 14px;
+            
+        }
+    }
 }
 
 .rightSide{
