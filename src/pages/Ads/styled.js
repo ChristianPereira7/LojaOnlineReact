@@ -25,6 +25,12 @@ margin-top: 20px;
         color: #000;
         padding: 10px;
     }
+
+    ul, li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
 
 .rightSide{
