@@ -46,8 +46,14 @@ margin-top: 20px;
             margin-right: 5px;
         span{
             font-size: 14px;
-            
+
         }
+    }
+
+    .categoryItem:hover,
+    .categoryItem.active{
+        background-color: #9BB83C;
+        color: #CCC;
     }
 }
 
