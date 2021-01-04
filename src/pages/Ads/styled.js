@@ -40,8 +40,8 @@ margin-top: 20px;
         color: #000;
         cursor: pointer;
 
-        :hover,
-        .active {
+        &:hover,
+        &.active {
         background-color: #9BB83C;
         color: #CCC;
     }
@@ -50,13 +50,13 @@ margin-top: 20px;
             width: 25px;
             height: 25px;
             margin-right: 5px;
+
+        }
         span{
             font-size: 14px;
 
         }
     }
-
-   
 }
 
 .rightSide{
