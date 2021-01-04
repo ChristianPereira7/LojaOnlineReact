@@ -40,6 +40,12 @@ margin-top: 20px;
         color: #000;
         cursor: pointer;
 
+        :hover,
+        .active {
+        background-color: #9BB83C;
+        color: #CCC;
+    }
+
         img{
             width: 25px;
             height: 25px;
@@ -50,11 +56,7 @@ margin-top: 20px;
         }
     }
 
-    .categoryItem:hover,
-    .categoryItem.active{
-        background-color: #9BB83C;
-        color: #CCC;
-    }
+   
 }
 
 .rightSide{
