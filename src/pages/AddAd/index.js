@@ -48,7 +48,7 @@ const Page = () => {
           }
 
         if(!category){
-            errors.push('Sem categoira');
+            errors.push('Sem categoria');
         }
 
         if(errors.length === 0){
