@@ -76,9 +76,7 @@ margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
     
-        .aditem{
-            width: 33%;
-        }
+      
     }
 
 
