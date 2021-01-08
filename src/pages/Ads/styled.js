@@ -67,6 +67,11 @@ margin-top: 20px;
         font-size: 18px;
     }
 
+    .listWarning{
+        padding: 30px;
+        text-align: center;
+    }
+
     .list{
         display: flex;
         flex-wrap: wrap;
