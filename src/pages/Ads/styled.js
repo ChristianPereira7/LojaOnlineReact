@@ -98,6 +98,13 @@ margin-top: 20px;
             cursor: pointer;
             margin-right: 5px;
             border-radius: 4px;
+
+            &:hover{
+                border: 1px solid #999;
+            }
+            &.active{
+                background-color: #CCC;  
+            }
         }
     }
 }
