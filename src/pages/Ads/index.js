@@ -25,9 +25,14 @@ const Page = () => {
     const [state, setState] = useState( query.get('state') != null ? query.get('state') : '' );
 
 
+    const [adsTotal, setAdsTotal] = useState(0);
+
+
     const [ stateList, setStateList ] = useState([]);
     const [ categories, setCategories ] = useState([]);
     const [ adList, setAdList ] = useState([]); 
+
+    const [pageCount, setPageCount] = useState(0);
 
     const [resultOpacity, setResultOpacity] = useState(1);
 
@@ -43,9 +48,22 @@ const Page = () => {
             state
         });
         setAdList(json.ads);
+        setAdsTotal(json.total);
         setResultOpacity(1);
         setLoading(false);
     }
+
+    useEffect(() => {
+        
+        if(adList.length > 0){
+            setPageCount(Math.ceil(adsTotal/adList.length));
+        } else {
+            setPageCount(0);
+        }
+
+        
+
+    }, [adsTotal])
 
     useEffect(()=>{
         let queryString = [];
@@ -88,6 +106,10 @@ const Page = () => {
         getCategories();
     }, []);
 
+    let pagination = [];
+    for(let i=1 ; i < pageCount; i++){
+        pagination.push(i);
+    }
 
 
     return (
@@ -140,6 +162,13 @@ const Page = () => {
                            <AdItem key={k} data={i}/>
                         )}
                     </div>
+
+                    <div className="pagination">
+                        {pagination.map((i, k)=>
+                            <div className="pagItem">{i }</div>
+                        )}
+                    </div>
+                    
                </div>
            </PageArea>
        </PageContainer>
