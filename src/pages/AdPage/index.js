@@ -116,7 +116,8 @@ const Page = () => {
 
             </PageArea>
 
-            <OthersArea>            {adInfo.others &&
+            <OthersArea>            
+                {adInfo.others &&
                     <>
                         <h2>Outras ofertas do vendedor</h2>
                         <div className="list">

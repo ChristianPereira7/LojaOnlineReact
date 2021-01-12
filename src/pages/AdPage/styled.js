@@ -99,6 +99,48 @@ margin-top: 20px;
         margin-top: 5px;
      }
 }
+
+@media (max-width: 600px){
+
+    &{
+        flex-direction: column;
+    }
+
+    .leftSide{
+
+        margin: 0;
+
+        .box{
+            width: 300px;
+            flex-direction: column;
+            margin: auto;   
+
+            .adImage{
+                width: auto;
+            }
+        }
+
+        .adInfo{
+            padding: 10px;
+        }
+    }
+
+    .rightSide{
+        width: auto;
+        margin-top: 20px;
+
+            .box{
+                width: 300px;
+                margin: auto;   
+            }
+
+            .contactSellerLink{
+                width: 320px;
+                margin: 10px auto;
+            }
+    }
+}
+
 `;
 
 export const OthersArea = styled.div`
@@ -108,9 +150,21 @@ h2{
 
 .list{
     display: flex;
+    flex-wrap: wrap;
 
     .aditem{
         width: 25%;
+    }
+}
+
+@media (max-width: 600px){
+
+    &{
+        text-align: center;
+        margin: 30px;
+    }
+    .list .aditem{
+       width: 50%;
     }
 }
 `;
@@ -124,5 +178,11 @@ a{
     margin: 0px 5px;
     text-decoration: underline;
     color: #000;
+}
+
+@media (max-width: 600px){
+    &{
+        margin: 20px;
+    }
 }
 `;
